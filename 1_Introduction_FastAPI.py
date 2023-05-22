@@ -17,7 +17,7 @@ async def root():
 
 @app.post('/')
 async def post():
-    return {'message': 'Message from Post'}
+    return {'message' : 'Message from Post'}
 
 @app.put('/')
 async def put():
@@ -29,5 +29,5 @@ async def put():
 # Flags: --port = we can choose any port we want, default is 8000
 # Flags: --reload = update automatically if there is any changes in our code.
 
-# It provides documentations 
+# It provides documentations
 # Add /docs in url and execute it. It will provide the output
