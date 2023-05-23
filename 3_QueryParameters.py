@@ -31,8 +31,8 @@ async def get_item(item_id: str, q: str | None = None):
 #############################################################
 # If we pass '/items/Arka?q=ABCD' in our URL, it will show
 # '{"item_id: ":"Arka","query: ":"ABCD"}' as output
-
 #############################################################
+
 # Let's see the type conversion 
 @app.get('/gg/{item_id}')
 # 'item_id' must be string
@@ -40,6 +40,7 @@ async def get_item(item_id: str, q: str | None = None):
 # For more than one parameter we use '&'
 # Here when we use 'short' then we have to use '&'
 async def get_itm(item_id: str, q: str | None = None, short: bool = False):
+    # We can't have non-default parameters after default parameters
     item = {'item_id: ' : item_id}
     if q:
         # If there is a query then it will update
@@ -50,3 +51,4 @@ async def get_itm(item_id: str, q: str | None = None, short: bool = False):
 
 ###################################################################
 ## Now if we run this with URL: 'http://127.0.0.1:8000/gg/Arka?q=ABCD&short=0' it will work
+###################################################################
