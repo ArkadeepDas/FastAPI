@@ -22,3 +22,18 @@ async def read_item():
 @app.get('/users/', dependencies = [Depends(verify_token), Depends(verify_key)])
 async def read_user():
     return [{'Land Rover': 'Defender', 'Lamborgini': 'Aventador'}]
+
+# If we add more routes and we want same dependencies then it's became messy
+# This get's into global dependencies
+
+#####################################################################################
+# Global Dependencies
+#####################################################################################
+
+# We assign dependencies in global
+app = FastAPI(dependencies = [Depends(verify_token), Depends(verify_key)])
+
+# Now we can get rid of this dependencies from individual dependencies
+@app.get('/cars/')
+async def car_details():
+    return [{'Volkswagen': 'Polo'}, {'Skoda': 'Slavia'}]
