@@ -12,4 +12,4 @@ async def upload_file(file: UploadFile = File(...)):
     content = await file.read()
     # Convert content into BytesIO to stream
     image = io.BytesIO(content)
-    return StreamingResponse(content=image, media_type = 'image/png')
+    return StreamingResponse(content=image, media_type = 'image/jpg')
